@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default function handleResponseFromAPI(thePromise) {
   return (
     thePromise
