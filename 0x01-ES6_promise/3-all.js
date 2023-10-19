@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { uploadPhoto, createUser } from './utils';
 
 const uPhoto = uploadPhoto();
