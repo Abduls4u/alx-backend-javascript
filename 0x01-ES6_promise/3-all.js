@@ -7,9 +7,7 @@ const cUser = createUser();
 export default function handleProfileSignup() {
   return Promise.all([cUser, uPhoto])
     .then((values) => {
-      const user = values[0];
-      const photo = values[1];
-      console.log(`${photo.body} ${user.firstName} ${user.lastName}`);
+      console.log(`${values[1].body} ${values[0].firstName} ${values[0].lastName}`);
     })
-    .catch(() => { console.log('Signup system offline'); });
+    .catch(() => { console.log('Signup system offline'); })
 }
