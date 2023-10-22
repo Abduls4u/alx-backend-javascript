@@ -1,9 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = name;
-    this._length = length;
-    this._students = Array.isArray(students) ? students : [];
+    this._name = typeof name === 'string' ? name : (() => { throw new TypeError('name must be a string'); })();
+    this._length = typeof length === 'number' ? length : (() => { throw new TypeError('length must be a number'); })();
+    if (!students.every((student) => typeof student === 'string')) {
+      throw new TypeError('students must be an array of strings');
+    } else {
+      this._students = students;
+    }
   }
 
   // name getter and setter
