@@ -7,13 +7,16 @@ const rl = readline.createInterface({
 
 if (process.stdin.isTTY) {
   rl.question('Welcome to Holberton School, what is your name?\n', (answer) => {
-    console.log('Your name is: ', answer);
+    ('Your name is: ', answer);
     rl.close();
   });
 } else {
   rl.question('Welcome to Holberton School, what is your name?\n', (answer) => {
-    console.log('Your name is: ', answer);
-    console.log('This important software is now closing');
+    process.stdout.write('Your name is: ', answer);
+    process.stdout.write('This important software is now closing');
     rl.close();
   });
 }
+rl.on('SIGINT', () => {
+  process.stdout.write('This important software is now closing');
+});
